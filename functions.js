@@ -6,7 +6,7 @@
  */
 
 const channels = require("./channels.json");
-// console.log(channels[0]);
+console.log(channels[2]);
 
 /**************************************************************
  * getChannelName(channel)
@@ -14,10 +14,10 @@ const channels = require("./channels.json");
  * - returns the name of the channel
  ****************************************************************/
 function getChannelName(channel) {
-  // Your code here
+  return channel.name;
 }
 
-// console.log(getChannelName(channels[0]));
+// console.log(getChannelName(channels[3]));
 
 /**************************************************************
  * numberOfVideos(channel)
@@ -25,9 +25,9 @@ function getChannelName(channel) {
  * - returns the number of videos that channel has
  ****************************************************************/
 function numberOfVideos(channel) {
-  // Your code here
+  return channel.videos.length;
 }
-// console.log(numberOfVideos(channels[0]))
+console.log(numberOfVideos(channels[3]));
 
 /**************************************************************
  * channelHasVideo(videoTitle, channel):
@@ -39,7 +39,7 @@ function numberOfVideos(channel) {
  * BONUS: use iteration method `.some()`
  ****************************************************************/
 function channelHasVideo(videoTitle, channel) {
-  // Your code here
+  videoTitle === videoTitle;
 }
 // console.log(channelHasVideo("The Universal S", channels[0]));
 // console.log(channelHasVideo("The Universal S", channels[1]));
