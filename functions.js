@@ -6,7 +6,7 @@
  */
 
 const channels = require("./channels.json");
-console.log(channels[1]);
+// console.log(channels[1]);
 
 /**************************************************************
  * getChannelName(channel)
@@ -70,11 +70,12 @@ function getChannelByName(channelName, channels) {
  ****************************************************************/
 
 function getChannelByVideoTitle(videoTitle, channels) {
-  channels.some((channels) => channels.title === videoTitle);
-  return channels.find((channels) => channels.title === videoTitle);
+  return channels.find((channels) =>
+    channels.videos.some((channels) => channels.title === videoTitle)
+  );
 }
 
-console.log(getChannelByVideoTitle("The Universal S", channels));
+// console.log(getChannelByVideoTitle("The Universal S", channels));
 
 /**************************************************************
  * searchChannels(query, channels):
@@ -84,10 +85,16 @@ console.log(getChannelByVideoTitle("The Universal S", channels));
  *
  * Hint: use string method `.includes()` and iteration method `.filter()`
  ****************************************************************/
+
 function searchChannels(query, channels) {
-  // Your code here
+  return channels.filter(
+    (channels) =>
+      channels.name.includes(`${query}`) ||
+      channels.description.includes(`${query}`)
+  );
 }
-// console.log(searchChannels("the", channels))
+
+// console.log(searchChannels("the", channels));
 
 module.exports = {
   getChannelName,
