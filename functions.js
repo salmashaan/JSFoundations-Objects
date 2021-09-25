@@ -6,7 +6,7 @@
  */
 
 const channels = require("./channels.json");
-console.log(channels[2]);
+console.log(channels[1]);
 
 /**************************************************************
  * getChannelName(channel)
@@ -27,7 +27,7 @@ function getChannelName(channel) {
 function numberOfVideos(channel) {
   return channel.videos.length;
 }
-console.log(numberOfVideos(channels[3]));
+// console.log(numberOfVideos(channels[3]));
 
 /**************************************************************
  * channelHasVideo(videoTitle, channel):
@@ -38,9 +38,11 @@ console.log(numberOfVideos(channels[3]));
  *
  * BONUS: use iteration method `.some()`
  ****************************************************************/
-function channelHasVideo(videoTitle, channel) {
-  videoTitle === videoTitle;
+
+function channelHasVideo(videoTitle, channels) {
+  return channels.videos.some((channels) => channels.title === videoTitle);
 }
+
 // console.log(channelHasVideo("The Universal S", channels[0]));
 // console.log(channelHasVideo("The Universal S", channels[1]));
 
@@ -53,9 +55,10 @@ function channelHasVideo(videoTitle, channel) {
  * BONUS: use iteration method `.find()`
  ****************************************************************/
 function getChannelByName(channelName, channels) {
-  // Your code here
+  return channels.find((channels) => channels.name === channelName);
 }
-// console.log(getChannelByName("PowerfulJRE", channels))
+
+// console.log(getChannelByName("PowerfulJRE", channels));
 
 /**************************************************************
  * getChannelByVideoTitle(videoTitle, channels):
@@ -65,10 +68,13 @@ function getChannelByName(channelName, channels) {
  *
  * BONUS: use iteration methods `.find()` and `.some()`
  ****************************************************************/
+
 function getChannelByVideoTitle(videoTitle, channels) {
-  // Your code here
+  channels.some((channels) => channels.title === videoTitle);
+  return channels.find((channels) => channels.title === videoTitle);
 }
-// console.log(getChannelByVideoTitle("The Universal S", channels));
+
+console.log(getChannelByVideoTitle("The Universal S", channels));
 
 /**************************************************************
  * searchChannels(query, channels):
