@@ -39,8 +39,8 @@ function numberOfVideos(channel) {
  * BONUS: use iteration method `.some()`
  ****************************************************************/
 
-function channelHasVideo(videoTitle, channels) {
-  return channels.videos.some((channels) => channels.title === videoTitle);
+function channelHasVideo(videoTitle, channel) {
+  return channel.videos.some((channels) => channels.title === videoTitle);
 }
 
 // console.log(channelHasVideo("The Universal S", channels[0]));
@@ -55,10 +55,10 @@ function channelHasVideo(videoTitle, channels) {
  * BONUS: use iteration method `.find()`
  ****************************************************************/
 function getChannelByName(channelName, channels) {
-  return channels.find((channels) => channels.name === channelName);
+  return channels.find((channel) => channel.name === channelName);
 }
 
-// console.log(getChannelByName("PowerfulJRE", channels));
+console.log(getChannelByName("PowerfulJRE", channels));
 
 /**************************************************************
  * getChannelByVideoTitle(videoTitle, channels):
@@ -75,6 +75,12 @@ function getChannelByVideoTitle(videoTitle, channels) {
   );
 }
 
+//  OR using our already made function:
+
+// function getChannelByVideoTitle(videoTitle, channels) {
+//   return channels.find((channel) => channelHasVideo(videoTitle, channel));
+// }
+
 // console.log(getChannelByVideoTitle("The Universal S", channels));
 
 /**************************************************************
@@ -88,9 +94,8 @@ function getChannelByVideoTitle(videoTitle, channels) {
 
 function searchChannels(query, channels) {
   return channels.filter(
-    (channels) =>
-      channels.name.includes(`${query}`) ||
-      channels.description.includes(`${query}`)
+    (channel) =>
+      channel.name.includes(query) || channel.description.includes(query)
   );
 }
 
